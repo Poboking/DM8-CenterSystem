@@ -3,7 +3,6 @@ package io.studio.authservice.controller;
 import io.jsonwebtoken.Claims;
 import io.studio.authservice.utils.JwtUtils;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;

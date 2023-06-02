@@ -1,1 +1,44 @@
+spring:
+  datasource:
+#    driver-class-name: dm.jdbc.driver.DmDriver
+#    url: jdbc:dm://localhost:5236/ROOT?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf-8
+#    username: ROOT
+#    password: abcd@1234
+    # 单数据源配置
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://127.0.0.1:3306/software_cup_1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: liya4537
+    driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      initialization-mode: initialization-mode=always
+      pool-name: MasterHikariCP
+      auto-commit: true
 
+  #配置jackson序列化和反序列化指定时间格式.
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  # 启动自动消除循环引用
+  main:
+    allow-circular-references: true
+# jwt配置
+jwt:
+  secret: test-secret #${JWT_SECRET:my-secret} # 签名秘钥，可通过环境变量或直接设置。框架自带默认值为 “my-secret”。
+  issuer: org.sziit # JWT 签发人
+  audience: user # JWT 接收者
+  expiration: 3600
+
+
+
+
+server:
+  servlet:
+    context-path: /user
+  port: 9981
